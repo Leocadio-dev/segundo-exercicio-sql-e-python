@@ -113,7 +113,7 @@ def lerDadosRepres():
     """
     
     # Lendo o arquivo
-    arquivoRepres = open('./Repres.csv', encoding='UTF-8')
+    arquivoRepres = open('./bases/Repres.csv', encoding='UTF-8')
     
     
     linha = arquivoRepres.readline().rstrip()
@@ -170,7 +170,7 @@ def lerDadosProdutos():
                         PESOBRUTO) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """
     
-    arquivoProdutos = open('./Produtos.csv', encoding='UTF-8')
+    arquivoProdutos = open('./bases/Produtos.csv', encoding='UTF-8')
     linha = arquivoProdutos.readline().strip()
     # A primeira linha é título. Deve ser pulada 
     linha = arquivoProdutos.readline().strip()
@@ -247,7 +247,7 @@ def lerDadosProdutos():
 def lerDadosFornClien():
     
     # Lendo o arquivo
-    arquivoFornClien = open('./FornClien.csv', encoding='UTF-8')
+    arquivoFornClien = open('./bases/FornClien.csv', encoding='UTF-8')
 
 
     sql = """
@@ -312,7 +312,7 @@ def lerDadosPedidos():
         INSERT INTO pedidos(NUMPED, DATAPED, HORAPED, CODCLIEN, ES, FINALIDNFE, SITUACAO, PESO, PRAZOPGTO, VALORPRODS, VALORDESC, VALOR, VALBASEICMS, VALICMS, COMISSAO) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
 """
     
-    arquivoPedidos = open('./Pedidos.csv')
+    arquivoPedidos = open('./bases/Pedidos.csv')
     
     linha = arquivoPedidos.readline().strip()
     # Descartando a linha de título
@@ -415,7 +415,7 @@ def lerDadosPedidos():
     
 def lerDadosPedidosItem():
 
-    arquivoPedidosItem = open('./PedidosItem.csv', encoding='UTF-8')
+    arquivoPedidosItem = open('./bases/PedidosItem.csv', encoding='UTF-8')
     dados = {}
 
     sql = """
@@ -482,7 +482,7 @@ def lerDadosPedidosItem():
     
     try:
         conexao.commit()
-        print("Dados do arquivo PedidosItem.csv gravados com sucesso")
+        print("Dados do arquivo PedidosItem.csv gravados no banco")
     except Exception as e:
         print("Erro na gravação de Pedidos Item")
 
