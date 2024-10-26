@@ -12,7 +12,7 @@ def criarTabelas():
     # Criação da tabela repres
     sql = """
         CREATE TABLE IF NOT EXISTS repres(
-            CODPRESS INTEGER PRIMARY KEY,
+            CODREPRES INTEGER PRIMARY KEY,
             TIPOPESS STRING NOT NULL,
             NOMEFAN STRING NOT NULL,
             COMISSAOBASE NUMERIC NOT NULL
@@ -52,7 +52,7 @@ def criarTabelas():
             CODMUNICIPIO INTEGER,
             TIPOPESSOA INTEGER NOT NULL,
             COBRANC INTEGER NOT NULL,
-            PRAZOPGTO
+            PRAZOPGTO INTEGER
         )
     """
     cursor.execute(sql)
@@ -109,7 +109,7 @@ def lerDadosRepres():
     
     # SQL declarado fora do laço for para não ter que gastar processamento
     sql = """
-        INSERT INTO repres(CODPRESS, TIPOPESS, NOMEFAN, COMISSAOBASE) VALUES(?, ?, ?, ?)
+        INSERT INTO repres(CODREPRES, TIPOPESS, NOMEFAN, COMISSAOBASE) VALUES(?, ?, ?, ?)
     """
     
     # Lendo o arquivo
